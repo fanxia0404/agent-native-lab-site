@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy and measurement · Agent Native Lab</title>
+  <meta name="description" content="The Agent Native Lab privacy and measurement note: what may be measured, what is not collected, and why aggregate data matters." />
+  <style>
+    :root { --bg:#fbfaf7; --panel:#fffdf8; --ink:#18202a; --muted:#586170; --line:#e4ded3; --accent:#3157d5; --warn:#9f5b00; --good:#0f7b4f; }
+    * { box-sizing:border-box; } body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.58; color:var(--ink); background:var(--bg); }
+    header,main,footer { max-width:1000px; margin:0 auto; padding:0 22px; } nav { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:20px 0; }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } .brand { font-weight:800; color:var(--ink); } .links { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
+    h1 { font-size:clamp(36px,6vw,60px); line-height:1; letter-spacing:-.045em; margin:38px 0 16px; } h2 { margin:38px 0 12px; font-size:28px; letter-spacing:-.025em; } h3 { margin:0 0 8px; } p { margin:0 0 14px; }
+    .lede { font-size:20px; color:#2f3947; max-width:800px; } .kicker { color:#17306f; font-weight:800; text-transform:uppercase; letter-spacing:.08em; font-size:13px; margin-top:24px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; } .card { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:20px; margin:16px 0; }
+    .good { border-left:4px solid var(--good); padding-left:14px; } .caution { border-left:4px solid var(--warn); padding-left:14px; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; } th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
+    footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="index.html">Agent Native Lab</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="evaluate-a-workflow.html">Evaluate a workflow</a>
+        <a href="how-we-test.html">How we test</a>
+        <a href="self-improving-loop.html">Self-improving loop</a>
+        <a href="workflow-framework.html">Workflow framework</a>
+        <a href="real-world-examples.html">Real-world examples</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </nav>
+    <div class="kicker">Privacy and measurement</div>
+    <h1>Measurement should help the site improve without identifying visitors.</h1>
+    <p class="lede">The lab needs aggregate traffic signals to run a self-improving cycle, but it does not need visitor profiles, accounts, forms, session replay, ad pixels, or personal data.</p>
+  </header>
+
+  <main>
+    <section class="card good">
+      <h2>Current status</h2>
+      <p>Privacy-preserving measurement has been approved as a next step, but the public site does not yet include a measurement script. A measurement provider still needs to be configured before aggregate page-view and referrer data can be collected.</p>
+    </section>
+
+    <section class="card">
+      <h2>Measurement boundaries</h2>
+      <table>
+        <thead><tr><th>Allowed</th><th>Not allowed</th></tr></thead>
+        <tbody>
+          <tr><td>Aggregate page views</td><td>Cookies</td></tr>
+          <tr><td>Aggregate referrers</td><td>User IDs or account tracking</td></tr>
+          <tr><td>Coarse, privacy-preserving technical aggregates if the provider supports disabling details</td><td>Session replay, heatmaps, ad pixels, or cross-site tracking</td></tr>
+          <tr><td>Manual review of aggregate trends to choose safer content improvements</td><td>Forms, email capture, waitlists, or collecting reader-submitted data without separate approval</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>How measurement feeds the self-improving loop</h2>
+      <div class="grid">
+        <article class="card"><h3>Find unclear pages</h3><p>If a page gets visits but no follow-up navigation, the agent can propose clearer framing or a better next step.</p></article>
+        <article class="card"><h3>Prioritize useful pages</h3><p>If the worksheet page gets more attention than examples, future improvements should make the worksheet more useful first.</p></article>
+        <article class="card"><h3>Keep claims modest</h3><p>Traffic is a weak signal. It can guide iteration, but it is not proof of demand, validation, or profitability.</p></article>
+      </div>
+    </section>
+
+    <section class="card caution">
+      <h2>Open setup item</h2>
+      <p>The conservative implementation choice is a no-cookie provider such as GoatCounter, configured for aggregate page views and referrers only. Enabling it requires a site code/account configuration; until that exists, this page documents the policy and the site remains unmeasured.</p>
+    </section>
+  </main>
+
+  <footer>
+    Last updated 2026-06-22. Static research note: claims are limited to the evidence described on this site; no forms, outreach, cookies, user IDs, session replay, ad pixels, or user data collection are used.
+  </footer>
+</body>
+</html>

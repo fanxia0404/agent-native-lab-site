@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Self-improving loop · Agent Native Lab</title>
+  <meta name="description" content="How Agent Native Lab is designed to improve its own public site through a bounded AI-agent operating loop with human gates." />
+  <style>
+    :root { --bg:#fbfaf7; --panel:#fffdf8; --ink:#18202a; --muted:#586170; --line:#e4ded3; --accent:#3157d5; --warn:#9f5b00; --good:#0f7b4f; }
+    * { box-sizing:border-box; } body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.58; color:var(--ink); background:var(--bg); }
+    header,main,footer { max-width:1040px; margin:0 auto; padding:0 22px; } nav { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:20px 0; }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } .brand { font-weight:800; color:var(--ink); } .links { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
+    h1 { font-size:clamp(36px,6vw,60px); line-height:1; letter-spacing:-.045em; margin:38px 0 16px; } h2 { margin:38px 0 12px; font-size:28px; letter-spacing:-.025em; } h3 { margin:0 0 8px; } p { margin:0 0 14px; }
+    .lede { font-size:20px; color:#2f3947; max-width:820px; } .kicker { color:#17306f; font-weight:800; text-transform:uppercase; letter-spacing:.08em; font-size:13px; margin-top:24px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; } .card { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:20px; margin:16px 0; }
+    .good { border-left:4px solid var(--good); padding-left:14px; } .caution { border-left:4px solid var(--warn); padding-left:14px; }
+    .tag { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:800; background:#eef2ff; color:#17306f; margin:0 5px 7px 0; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; } th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
+    code { background:#f1eee8; padding:2px 5px; border-radius:4px; }
+    footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="index.html">Agent Native Lab</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="evaluate-a-workflow.html">Evaluate a workflow</a>
+        <a href="how-we-test.html">How we test</a>
+        <a href="self-improving-loop.html">Self-improving loop</a>
+        <a href="workflow-framework.html">Workflow framework</a>
+        <a href="real-world-examples.html">Real-world examples</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </nav>
+    <div class="kicker">The site is the test subject</div>
+    <h1>The public site is designed to improve through a bounded agent loop.</h1>
+    <p class="lede">Agent Native Lab is not only a static explanation of agent-run work. The site itself is the operating surface: an AI agent proposes, edits, verifies, publishes, measures, and records small improvements while stopping at explicit human gates.</p>
+  </header>
+
+  <main>
+    <section class="card good">
+      <h2>The operating loop</h2>
+      <p><span class="tag">observe</span><span class="tag">choose</span><span class="tag">modify</span><span class="tag">verify</span><span class="tag">publish</span><span class="tag">measure</span><span class="tag">record</span><span class="tag">repeat</span></p>
+      <table>
+        <thead><tr><th>Step</th><th>What the agent does</th><th>Safety boundary</th></tr></thead>
+        <tbody>
+          <tr><td>Observe</td><td>Reads repo state, public pages, checks, source notes, and measurement summaries.</td><td>Uses project files and aggregate measurement only; no visitor identities or private browsing trails.</td></tr>
+          <tr><td>Choose</td><td>Selects one small improvement: clearer copy, safer examples, better worksheet guidance, or a missing caveat.</td><td>No external posting, identity use, forms, spend, or stronger claims.</td></tr>
+          <tr><td>Modify</td><td>Updates the sanitized public bundle source.</td><td>Public pages stay static and minimal.</td></tr>
+          <tr><td>Verify</td><td>Runs bundle checks, evidence checks, sample-output tests, and live-site verification.</td><td>Failed checks block publish.</td></tr>
+          <tr><td>Publish</td><td>Copies the reviewed bundle to the public GitHub Pages repo and pushes it.</td><td>Only the approved public file set is published.</td></tr>
+          <tr><td>Measure</td><td>Reviews aggregate page views and referrers after measurement is configured.</td><td>No cookies, user IDs, session replay, forms, or ad pixels.</td></tr>
+          <tr><td>Record</td><td>Logs what changed, what was learned, and where human approval was needed.</td><td>The log is private unless deliberately summarized for public readers.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Current autonomy level</h2>
+      <p>This is a bounded site-operation loop, not an unsupervised company. The agent can improve static pages and project records inside defined limits. The owner still gates distribution, identity use, data collection, paid services, monetization, and stronger claims.</p>
+      <div class="grid">
+        <article class="card"><h3>Autonomous enough for local improvement</h3><p>The agent can inspect the repo, update static pages, run checks, publish sanitized content, and record the result.</p></article>
+        <article class="card"><h3>Not autonomous for public risk</h3><p>The agent cannot post externally, collect feedback, spend money, use personal identity, or make stronger public claims without explicit approval.</p></article>
+        <article class="card"><h3>Designed to learn</h3><p>Privacy-preserving measurement will let future runs prioritize pages that readers actually visit, without identifying visitors.</p></article>
+      </div>
+    </section>
+
+    <section class="card caution">
+      <h2>What would make the story stronger</h2>
+      <p>The next milestone is to configure privacy-preserving measurement and run at least one measured improvement cycle: publish a small change, observe aggregate traffic, choose a follow-up improvement, verify it, and record the result.</p>
+    </section>
+
+    <section class="card">
+      <h2>Public improvement log</h2>
+      <table>
+        <thead><tr><th>Date</th><th>Change</th><th>Why it matters</th><th>Evidence level</th></tr></thead>
+        <tbody>
+          <tr><td>2026-06-22</td><td>Split private ops repo from public site repo.</td><td>Clarifies what is private operating history and what is public static output.</td><td>Repository state</td></tr>
+          <tr><td>2026-06-22</td><td>Added source-linked real-world examples and a manual score helper.</td><td>Makes the worksheet easier to use while preserving source caveats.</td><td>Static content update</td></tr>
+          <tr><td>2026-06-22</td><td>Added this self-improving-loop explanation.</td><td>Makes the autonomous setup visible instead of presenting the site as static content only.</td><td>Static content update</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    Last updated 2026-06-22. Static research note: claims are limited to the evidence described on this site; no forms, outreach, cookies, user IDs, session replay, ad pixels, or user data collection are used.
+  </footer>
+</body>
+</html>
