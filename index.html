@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Native Lab · Practical AI-agent workflow research</title>
+  <meta name="description" content="Agent Native Lab helps founders and builders identify which business workflows AI agents can realistically run, what still needs human review, and how to test the work safely." />
+  <style>
+    :root { color-scheme: light; --bg:#fbfaf7; --panel:#fffdf8; --ink:#18202a; --muted:#586170; --line:#e4ded3; --accent:#3157d5; --accent-ink:#17306f; --good:#0f7b4f; --warn:#9f5b00; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.55; color:var(--ink); background:radial-gradient(circle at top left,#eef2ff 0,transparent 30rem),var(--bg); }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+    header, main, footer { max-width:1080px; margin:0 auto; padding:0 22px; }
+    nav { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:20px 0; }
+    .brand { font-weight:800; letter-spacing:-.02em; color:var(--ink); }
+    .links { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
+    .hero { padding:58px 0 34px; max-width:910px; }
+    .kicker { color:var(--accent-ink); font-weight:800; text-transform:uppercase; letter-spacing:.09em; font-size:13px; }
+    h1 { font-size:clamp(40px,7vw,72px); line-height:.98; margin:12px 0 18px; letter-spacing:-.055em; }
+    h2 { font-size:28px; line-height:1.12; margin:42px 0 14px; letter-spacing:-.025em; }
+    h3 { margin:0 0 8px; font-size:18px; }
+    p { margin:0 0 14px; }
+    .lede { font-size:21px; color:#2f3947; max-width:800px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+    .button { display:inline-block; border:1px solid var(--accent); border-radius:999px; padding:10px 16px; font-weight:700; background:var(--accent); color:white; }
+    .button.secondary { background:transparent; color:var(--accent); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
+    .card { border:1px solid var(--line); background:rgba(255,253,248,.88); border-radius:18px; padding:20px; box-shadow:0 8px 28px rgba(24,32,42,.04); margin:16px 0; }
+    .callout { border-left:4px solid var(--good); padding-left:14px; }
+    .warning { border-left:4px solid var(--warn); padding-left:14px; color:#4a3420; }
+    .tag { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:700; background:#eef2ff; color:var(--accent-ink); margin:0 5px 7px 0; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+    th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
+    footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="index.html">Agent Native Lab</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="evaluate-a-workflow.html">Evaluate a workflow</a>
+        <a href="how-we-test.html">How we test</a>
+        <a href="workflow-framework.html">Workflow framework</a>
+        <a href="real-world-examples.html">Real-world examples</a>
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="kicker">Practical AI-agent workflow research</div>
+      <h1>Which parts of a business can an AI agent run today?</h1>
+      <p class="lede">Agent Native Lab helps solo founders and technical builders identify business workflows that agents can realistically operate, what still needs human review, and how to test those workflows without overclaiming autonomy.</p>
+      <div class="actions">
+        <a class="button" href="how-we-test.html">See how the lab tests agent-run work</a>
+        <a class="button secondary" href="evaluate-a-workflow.html">Evaluate a workflow</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="card callout">
+      <h2>What you get from this site</h2>
+      <p>If you are considering an AI-agent business or automation idea, this site gives you a practical way to ask: can the agent observe the right inputs, take safe actions, measure results, improve over time, and know when to ask a human?</p>
+      <div class="grid">
+        <article class="card"><h3>Decision support</h3><p>Use the framework to decide whether a workflow is agent-ready, too risky, or still needs human operation.</p></article>
+        <article class="card"><h3>Evidence discipline</h3><p>Separate hypotheses, local measurements, and source-reported examples instead of treating AI hype as proof.</p></article>
+        <article class="card"><h3>Reusable workflow patterns</h3><p>Compare real-world examples and extract reusable patterns for agent-run work.</p></article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>How to read this site</h2>
+      <p>The navigation follows the reader’s path from “why care?” to “how would I evaluate my own idea?”</p>
+      <table>
+        <thead><tr><th>Page</th><th>Question it answers</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Home</strong></td><td>What is this and who is it for?</td><td>Clarifies the practical value before showing the lab process.</td></tr>
+          <tr><td><strong>Evaluate a workflow</strong></td><td>Is my workflow ready for agent operation?</td><td>Turns the research into a quick scoring worksheet.</td></tr>
+          <tr><td><strong>How we test</strong></td><td>How does the lab test agent-run work without overclaiming?</td><td>Shows the live test case and makes limits visible.</td></tr>
+          <tr><td><strong>Workflow framework</strong></td><td>How do we judge whether a business workflow is agent-ready?</td><td>Gives readers a reusable evaluation checklist.</td></tr>
+          <tr><td><strong>Real-world examples</strong></td><td>What public examples suggest these patterns are emerging?</td><td>Grounds the framework in source-linked examples while keeping caveats clear.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>What makes this different</h2>
+      <div class="grid">
+        <article class="card"><h3>Workflow first</h3><p>We evaluate what an agent can observe, decide, change, measure, and improve — not whether a product has an AI feature.</p></article>
+        <article class="card"><h3>Autonomy with human review</h3><p>Safe local work can continue automatically, while public launch, spend, outreach, identity use, and risky claims require approval.</p></article>
+        <article class="card"><h3>Measured, not assumed</h3><p>Useful claims should trace to source-reported examples, clearly labeled hypotheses, or local measurements.</p></article>
+      </div>
+    </section>
+
+    <section class="card warning">
+      <h2>Evidence level</h2>
+      <span class="tag">Hypothesis</span><span class="tag">Private local test</span><span class="tag">Candidate evidence</span><span class="tag">No profitability claim</span>
+      <p>This is an unpublished review draft. The research is useful for framing and evaluation, not proof that agent-run businesses are solved or profitable.</p>
+    </section>
+  </main>
+
+  <footer>
+    Agent Native Lab is a private review draft. Public release requires explicit approval.
+  </footer>
+</body>
+</html>

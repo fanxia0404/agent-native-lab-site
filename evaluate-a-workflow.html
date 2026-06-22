@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evaluate a workflow · Agent Native Lab</title>
+  <meta name="description" content="A practical worksheet for scoring whether a business workflow is ready for AI-agent operation, human review, or manual testing first." />
+  <style>
+    :root { --bg:#fbfaf7; --panel:#fffdf8; --ink:#18202a; --muted:#586170; --line:#e4ded3; --accent:#3157d5; --warn:#9f5b00; --good:#0f7b4f; }
+    * { box-sizing:border-box; } body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.58; color:var(--ink); background:var(--bg); }
+    header,main,footer { max-width:1080px; margin:0 auto; padding:0 22px; } nav { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:20px 0; }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } .brand { font-weight:800; color:var(--ink); } .links { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
+    h1 { font-size:clamp(36px,6vw,58px); line-height:1; letter-spacing:-.045em; margin:38px 0 16px; } h2 { margin:38px 0 12px; font-size:28px; letter-spacing:-.025em; } h3 { margin:0 0 8px; } p { margin:0 0 14px; }
+    .lede { font-size:20px; color:#2f3947; max-width:820px; } .kicker { color:#17306f; font-weight:800; text-transform:uppercase; letter-spacing:.08em; font-size:13px; margin-top:24px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; } .card { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:20px; margin:16px 0; }
+    .tag { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:800; background:#eef2ff; color:#17306f; margin:0 5px 7px 0; } .good { border-left:4px solid var(--good); padding-left:14px; } .caution { border-left:4px solid var(--warn); padding-left:14px; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; } th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
+    footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="index.html">Agent Native Lab</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="evaluate-a-workflow.html">Evaluate a workflow</a>
+        <a href="how-we-test.html">How we test</a>
+        <a href="workflow-framework.html">Workflow framework</a>
+        <a href="real-world-examples.html">Real-world examples</a>
+      </div>
+    </nav>
+    <div class="kicker">Practical worksheet</div>
+    <h1>Score whether an AI agent should run this workflow.</h1>
+    <p class="lede">Use this quick worksheet before building an agent. It helps decide whether the workflow is ready for agent operation, needs human review, or should stay manual until the inputs and risks are clearer.</p>
+  </header>
+
+  <main>
+    <section class="card good">
+      <h2>How to use this page</h2>
+      <p>Copy the checklist into a doc or spreadsheet. Add one row for your workflow, score each dimension, and total the result out of 12.</p>
+      <p><span class="tag">0 = weak or unknown</span><span class="tag">1 = partially true</span><span class="tag">2 = strong and testable</span></p>
+    </section>
+
+    <section class="card caution">
+      <h2>Where this fits</h2>
+      <p>This is a pre-build triage worksheet for one candidate workflow. It is not an organizational AI-readiness assessment, not a production-readiness checklist, and not evidence that real users want the workflow automated.</p>
+    </section>
+
+    <section class="card">
+      <h2>Plain-English terms</h2>
+      <div class="grid">
+        <article><h3>Agent-run workflow</h3><p>A repeatable business task an AI agent can help operate under clear limits, not a claim that the agent can safely run the whole business alone.</p></article>
+        <article><h3>Bounded agent operation</h3><p>The agent may act only inside pre-approved limits and must stop at defined review gates.</p></article>
+        <article><h3>Review gate</h3><p>A point where a human must approve before the agent sends, spends, publishes, changes customer records, or makes a strong claim.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>The scoring checklist</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score 0</th><th>Score 1</th><th>Score 2</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Input clarity</strong></td><td>Inputs are scattered, private, or undefined.</td><td>Inputs exist but need cleanup or manual collection.</td><td>Inputs are available, legal to use, and structured enough for repeat runs.</td></tr>
+          <tr><td><strong>Action safety</strong></td><td>Wrong action can cause irreversible harm, spam, spend, or reputation damage.</td><td>Agent can draft or recommend, but a human must approve action.</td><td>Agent can act safely inside clear limits or on reversible local work.</td></tr>
+          <tr><td><strong>Reviewability</strong></td><td>Quality is subjective or hard to inspect.</td><td>A human can review quality, but it takes meaningful time.</td><td>Output can be checked quickly by rules, tests, examples, or small review samples.</td></tr>
+          <tr><td><strong>Measurable value</strong></td><td>No clear metric improves.</td><td>Value is plausible but indirect.</td><td>The workflow improves time saved, response speed, quality, cost, revenue, or another concrete measure.</td></tr>
+          <tr><td><strong>Human time</strong></td><td>Requires constant steering.</td><td>Requires review at defined points.</td><td>Can run mostly independently until a clear review gate appears.</td></tr>
+          <tr><td><strong>Learning loop</strong></td><td>Each run is one-off and leaves no reusable improvement.</td><td>Some notes or examples accumulate.</td><td>Each run improves a checklist, dataset, template, process, content asset, or tool.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Interpret the score</h2>
+      <div class="grid">
+        <article class="card caution"><h3>0–4: Do not automate yet</h3><p>Clarify the workflow manually. Find the input source, reduce risk, and define what success means before adding agents.</p></article>
+        <article class="card"><h3>5–8: Agent-assisted test</h3><p>Let the agent draft, research, classify, or recommend, but require human review before external action or strong claims.</p></article>
+        <article class="card good"><h3>9–12: Bounded agent operation</h3><p>Run an internal-only or low-risk test where the agent can act inside clear limits, log results, and stop at review gates.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>After scoring, define the first safe test</h2>
+      <table>
+        <thead><tr><th>Field</th><th>Prompt</th></tr></thead>
+        <tbody>
+          <tr><td>Workflow unit</td><td>What is one repeatable task the agent will handle?</td></tr>
+          <tr><td>Allowed inputs</td><td>What can the agent read or observe?</td></tr>
+          <tr><td>Allowed actions</td><td>What can the agent do without approval?</td></tr>
+          <tr><td>Review gate</td><td>When must the agent stop and ask a human?</td></tr>
+          <tr><td>Success metric</td><td>What number should improve?</td></tr>
+          <tr><td>First test</td><td>What is the smallest safe run?</td></tr>
+          <tr><td>Stop condition</td><td>What failure means pause, revert, or redesign?</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Example: content update workflow</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Input clarity</td><td>2</td><td>The agent can read existing local pages and source notes.</td></tr>
+          <tr><td>Action safety</td><td>2</td><td>Draft edits are reversible before publication.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>Static checks and a small human review can catch many obvious problems before handoff.</td></tr>
+          <tr><td>Measurable value</td><td>1</td><td>Useful pages shipped is measurable; reader demand is not measured yet.</td></tr>
+          <tr><td>Human time</td><td>1</td><td>Owner review is still needed for public positioning.</td></tr>
+          <tr><td>Learning loop</td><td>2</td><td>Each pass improves the checker, style guide, and public bundle.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded local agent operation, not autonomous public publishing.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Example: invoice intake workflow</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Input clarity</td><td>1</td><td>Invoices arrive through email, PDFs, and portals; inputs exist but need extraction and cleanup.</td></tr>
+          <tr><td>Action safety</td><td>1</td><td>The agent can extract fields and suggest coding, but payment approval must stay human-controlled.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>A human can check vendor, amount, due date, purchase order match, and general ledger code.</td></tr>
+          <tr><td>Measurable value</td><td>2</td><td>Cycle time, error rate, and human minutes per invoice are measurable.</td></tr>
+          <tr><td>Human time</td><td>1</td><td>Human review is needed at approval and payment gates.</td></tr>
+          <tr><td>Learning loop</td><td>2</td><td>Vendor mappings, exception lists, and coding rules improve over time.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>9</strong></td><td>Good candidate for bounded intake operation with human payment approval, not autonomous payment.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Example: inbound lead triage</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Input clarity</td><td>2</td><td>Forms, inbox messages, company names, and CRM fields are available if integrations exist.</td></tr>
+          <tr><td>Action safety</td><td>1</td><td>Classification and draft replies are safe; sending customer-visible replies should require review at first.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>A human can sample false positives, missed high-value leads, and reply quality.</td></tr>
+          <tr><td>Measurable value</td><td>2</td><td>Time to first response, qualified leads, conversion rate, and human minutes saved are measurable.</td></tr>
+          <tr><td>Human time</td><td>1</td><td>Human review is needed before external replies or routing-rule changes.</td></tr>
+          <tr><td>Learning loop</td><td>2</td><td>Lead examples, qualification rules, and reply templates improve over time.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded operation with review before customer-visible action.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Example: support ticket triage</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Input clarity</td><td>2</td><td>Ticket text, account metadata, product area, and knowledge-base articles are available in defined systems.</td></tr>
+          <tr><td>Action safety</td><td>1</td><td>Tagging, summarizing, and suggesting replies are safe; refunds, account changes, or policy exceptions need review.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>Support leads can review routing, escalation accuracy, and suggested response quality.</td></tr>
+          <tr><td>Measurable value</td><td>2</td><td>First-response time, resolution time, escalation rate, and reopened tickets are measurable.</td></tr>
+          <tr><td>Human time</td><td>1</td><td>Human review is needed for edge cases, angry customers, policy exceptions, and sensitive accounts.</td></tr>
+          <tr><td>Learning loop</td><td>2</td><td>Resolved cases improve macros, routing rules, knowledge-base gaps, and escalation triggers.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded agent-assisted triage with review before sensitive or customer-visible resolution.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card caution">
+      <h2>Red flags</h2>
+      <p>Even a high score should be treated cautiously if the workflow includes:</p>
+      <ul>
+        <li>regulated or high-stakes decisions;</li>
+        <li>irreversible spend or financial movement;</li>
+        <li>customer-visible actions without review;</li>
+        <li>unclear data rights or sensitive personal data;</li>
+        <li>no measurable output or feedback loop;</li>
+        <li>quality that cannot be reviewed quickly.</li>
+      </ul>
+    </section>
+
+    <section class="card caution">
+      <h2>Important caveat</h2>
+      <p>A high score means “worth testing under clear limits,” not “ready to run without oversight.” Public release, spend, outreach, identity use, and strong claims still need human approval.</p>
+    </section>
+  </main>
+
+  <footer>
+    Private review draft. Public release requires explicit approval.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How we test · Agent Native Lab</title>
+  <meta name="description" content="How Agent Native Lab tests whether an AI agent can run a bounded business workflow while staying inside clear human-review rules." />
+  <style>
+    :root { --bg:#fbfaf7; --panel:#fffdf8; --ink:#18202a; --muted:#586170; --line:#e4ded3; --accent:#3157d5; --warn:#9f5b00; --good:#0f7b4f; }
+    * { box-sizing:border-box; } body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.58; color:var(--ink); background:var(--bg); }
+    header,main,footer { max-width:1000px; margin:0 auto; padding:0 22px; } nav { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:20px 0; }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } .brand { font-weight:800; color:var(--ink); } .links { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
+    h1 { font-size:clamp(36px,6vw,60px); line-height:1; letter-spacing:-.045em; margin:38px 0 16px; } h2 { margin:38px 0 12px; font-size:28px; letter-spacing:-.025em; } h3 { margin:0 0 8px; } p { margin:0 0 14px; }
+    .lede { font-size:20px; color:#2f3947; max-width:760px; } .kicker { color:#17306f; font-weight:800; text-transform:uppercase; letter-spacing:.08em; font-size:13px; margin-top:24px; }
+    .card { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:20px; margin:16px 0; } .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+    .status { display:inline-block; border-radius:999px; padding:5px 10px; font-weight:800; font-size:12px; background:#eef2ff; color:#17306f; margin-right:6px; } .status.good { background:#e8f7ef; color:var(--good); } .status.warn { background:#fff3df; color:var(--warn); }
+    table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; } th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
+    footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="index.html">Agent Native Lab</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="evaluate-a-workflow.html">Evaluate a workflow</a>
+        <a href="how-we-test.html">How we test</a>
+        <a href="workflow-framework.html">Workflow framework</a>
+        <a href="real-world-examples.html">Real-world examples</a>
+      </div>
+    </nav>
+    <div class="kicker">Live local test</div>
+    <h1>Can an AI agent help run the lab that studies agent-run work?</h1>
+    <p class="lede">The lab tests one workflow at a time. For each workflow, it asks what the agent can do safely on its own, what evidence is produced, and where a human still needs to review the work.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Why this matters to a reader</h2>
+      <p>The point is not the lab itself. The point is to make the test method visible: where the agent can continue safely, where it needs review, what it can measure, and what process mistakes repeat unless the rules are improved.</p>
+    </section>
+
+    <section class="card">
+      <h2>Current state</h2>
+      <p><span class="status good">private draft</span><span class="status">local only</span><span class="status warn">not market validated</span></p>
+      <p>No public deployment, paid spend, outreach, personal identity use, or profitability claims have been approved.</p>
+    </section>
+
+    <section>
+      <h2>Hypothesis under test</h2>
+      <div class="card"><p>A bounded workflow can be partly run by an AI agent when the agent has clear inputs, safe actions, measurable outputs, and explicit moments where a human must review or approve the work.</p></div>
+    </section>
+
+    <section>
+      <h2>The workflow being tested</h2>
+      <div class="grid">
+        <article class="card"><h3>1. Observe</h3><p>Read repo state, task records, source docs, and prior review findings instead of relying on chat memory.</p></article>
+        <article class="card"><h3>2. Decide</h3><p>Select the next allowed local task without asking for generic confirmation.</p></article>
+        <article class="card"><h3>3. Act</h3><p>Create or update local pages, docs, records, and checks.</p></article>
+        <article class="card"><h3>4. Verify</h3><p>Run static checks, link checks, and copy reviews before committing.</p></article>
+        <article class="card"><h3>5. Measure</h3><p>Record completed tasks, owner attention, cost, and repeated failure patterns.</p></article>
+        <article class="card"><h3>6. Improve</h3><p>Patch the process when failures reveal missing rules.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>What we have learned so far</h2>
+      <table>
+        <thead><tr><th>Signal</th><th>Evidence level</th><th>Reader takeaway</th></tr></thead>
+        <tbody>
+          <tr><td>Agents can keep a small private site and research notes coherent when checks are required before each handoff.</td><td>Local measurement</td><td>Bounded, reversible workflows are the best starting point.</td></tr>
+          <tr><td>Agents can still ask for unnecessary approval unless the rule is explicit.</td><td>Recorded process failure</td><td>Human-review gates must be precise, not vibes-based.</td></tr>
+          <tr><td>Internal labels can leak into public copy.</td><td>Owner feedback plus end-user review</td><td>Public-facing workflows need separate language checks.</td></tr>
+          <tr><td>External spend remains $0.</td><td>Local record</td><td>Early workflow research can proceed with local/free tooling.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>What still requires human review</h2>
+      <p>Public release, paid or recurring spend, external outreach, questionable scraping, personal identity use, permanent brand commitments, or strong public claims.</p>
+    </section>
+  </main>
+
+  <footer>
+    Private review draft. Public release requires explicit approval.
+  </footer>
+</body>
+</html>
