@@ -278,6 +278,19 @@ Evidence or concern for each score:
 Decision: manual first / agent-assisted test / bounded agent operation</pre>
     </section>
 
+    <section class="card">
+      <h2>Manual score helper</h2>
+      <p>This is intentionally not an interactive calculator: no form, no script, and no saved data. Add the six scores yourself, then use the table below to sanity-check the result.</p>
+      <table>
+        <thead><tr><th>Total score</th><th>Suggested interpretation</th><th>Default next step</th><th>Do not skip</th></tr></thead>
+        <tbody>
+          <tr><td>0–4</td><td>Manual first</td><td>Clarify inputs, risk, and success metric before using an agent.</td><td>Define a reviewable output and baseline.</td></tr>
+          <tr><td>5–8</td><td>Agent-assisted test</td><td>Let the agent draft, classify, extract, or recommend in shadow mode.</td><td>Human approval before sending, spending, publishing, or record changes.</td></tr>
+          <tr><td>9–12</td><td>Bounded agent operation</td><td>Run a small internal test with named allowed inputs, allowed actions, gates, and stop conditions.</td><td>Evidence review; a high score is not permission for unrestricted autonomy.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <section class="card caution">
       <h2>Red flags</h2>
       <p>Even a high score should be treated cautiously if the workflow includes:</p>
