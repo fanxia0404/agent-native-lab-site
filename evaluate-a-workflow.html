@@ -31,15 +31,25 @@
       </div>
     </nav>
     <div class="kicker">Practical worksheet</div>
-    <h1>Score whether an AI agent should run this workflow.</h1>
-    <p class="lede">Use this quick worksheet before building an agent. It helps decide whether the workflow is ready for agent operation, needs human review, or should stay manual until the inputs and risks are clearer.</p>
+    <h1>Score whether a workflow is ready for a safe AI-agent test.</h1>
+    <p class="lede">Use this quick worksheet before building an agent. It helps decide whether to test the workflow with an agent, keep a human in the loop, or improve the process manually first.</p>
   </header>
 
   <main>
     <section class="card good">
       <h2>How to use this page</h2>
-      <p>Copy the checklist into a doc or spreadsheet. Add one row for your workflow, score each dimension, and total the result out of 12.</p>
+      <p>Copy the checklist into a doc or spreadsheet. For one workflow, score each of the six dimensions and total the result out of 12.</p>
       <p><span class="tag">0 = weak or unknown</span><span class="tag">1 = partially true</span><span class="tag">2 = strong and testable</span></p>
+    </section>
+
+    <section class="card good">
+      <h2>What you get after 10 minutes</h2>
+      <ul>
+        <li>A 0–12 score for one workflow.</li>
+        <li>A decision: manual first, agent-assisted test, or bounded agent operation.</li>
+        <li>A first safe test that avoids sending, spending, publishing, or changing sensitive records.</li>
+        <li>A review gate and stop condition so the test does not drift into unsafe automation.</li>
+      </ul>
     </section>
 
     <section class="card caution">
@@ -50,9 +60,9 @@
     <section class="card">
       <h2>Plain-English terms</h2>
       <div class="grid">
-        <article><h3>Agent-run workflow</h3><p>A repeatable business task an AI agent can help operate under clear limits, not a claim that the agent can safely run the whole business alone.</p></article>
-        <article><h3>Bounded agent operation</h3><p>The agent may act only inside pre-approved limits and must stop at defined review gates.</p></article>
-        <article><h3>Review gate</h3><p>A point where a human must approve before the agent sends, spends, publishes, changes customer records, or makes a strong claim.</p></article>
+        <article><h3>Workflow the agent can help operate</h3><p>A repeatable business task where an AI agent can do some work under clear limits, with humans approving risky steps.</p></article>
+        <article><h3>Bounded agent operation</h3><p>The agent can act only within named limits: specific inputs, specific allowed actions, review gates, non-sensitive records, and stop conditions.</p></article>
+        <article><h3>Review gate</h3><p>A point where a human must approve before the agent sends, spends, publishes, changes customer records, or makes a strong claim. Example: the agent may draft a reply, but a human must approve before it is sent.</p></article>
       </div>
     </section>
 
@@ -62,11 +72,11 @@
         <thead><tr><th>Dimension</th><th>Score 0</th><th>Score 1</th><th>Score 2</th></tr></thead>
         <tbody>
           <tr><td><strong>Input clarity</strong></td><td>Inputs are scattered, private, or undefined.</td><td>Inputs exist but need cleanup or manual collection.</td><td>Inputs are available, legal to use, and structured enough for repeat runs.</td></tr>
-          <tr><td><strong>Action safety</strong></td><td>Wrong action can cause irreversible harm, spam, spend, or reputation damage.</td><td>Agent can draft or recommend, but a human must approve action.</td><td>Agent can act safely inside clear limits or on reversible local work.</td></tr>
+          <tr><td><strong>Action safety</strong></td><td>Wrong action can cause irreversible harm, spam, spend, or reputation damage.</td><td>Agent can draft or recommend, but a human must approve action.</td><td>Agent can perform reversible or pre-approved actions inside clear limits.</td></tr>
           <tr><td><strong>Reviewability</strong></td><td>Quality is subjective or hard to inspect.</td><td>A human can review quality, but it takes meaningful time.</td><td>Output can be checked quickly by rules, tests, examples, or small review samples.</td></tr>
-          <tr><td><strong>Measurable value</strong></td><td>No clear metric improves.</td><td>Value is plausible but indirect.</td><td>The workflow improves time saved, response speed, quality, cost, revenue, or another concrete measure.</td></tr>
-          <tr><td><strong>Human time</strong></td><td>Requires constant steering.</td><td>Requires review at defined points.</td><td>Can run mostly independently until a clear review gate appears.</td></tr>
-          <tr><td><strong>Learning loop</strong></td><td>Each run is one-off and leaves no reusable improvement.</td><td>Some notes or examples accumulate.</td><td>Each run improves a checklist, dataset, template, process, content asset, or tool.</td></tr>
+          <tr><td><strong>Measurable value</strong></td><td>No clear metric improves.</td><td>Value is plausible but indirect.</td><td>The workflow can improve a concrete metric such as time saved, response speed, quality, cost, revenue, error rate, or cycle time.</td></tr>
+          <tr><td><strong>Human effort required</strong></td><td>Requires constant steering.</td><td>Requires review at defined points.</td><td>Can proceed through defined local steps until a clear review gate appears.</td></tr>
+          <tr><td><strong>Reusable learning</strong></td><td>Each run is one-off and leaves no reusable improvement.</td><td>Some notes or examples accumulate.</td><td>Each run improves a checklist, dataset, template, process, content asset, or tool.</td></tr>
         </tbody>
       </table>
     </section>
@@ -76,24 +86,30 @@
       <div class="grid">
         <article class="card caution"><h3>0–4: Do not automate yet</h3><p>Clarify the workflow manually. Find the input source, reduce risk, and define what success means before adding agents.</p></article>
         <article class="card"><h3>5–8: Agent-assisted test</h3><p>Let the agent draft, research, classify, or recommend, but require human review before external action or strong claims.</p></article>
-        <article class="card good"><h3>9–12: Bounded agent operation</h3><p>Run an internal-only or low-risk test where the agent can act inside clear limits, log results, and stop at review gates.</p></article>
+        <article class="card good"><h3>9–12: Bounded agent operation</h3><p>Run an internal-only or low-risk test where the agent can act inside clear limits, summarize non-sensitive results, and stop at review gates.</p></article>
       </div>
     </section>
 
     <section>
       <h2>After scoring, define the first safe test</h2>
+      <p>The score is not the decision by itself. The decision is the smallest test you can run without external harm.</p>
       <table>
         <thead><tr><th>Field</th><th>Prompt</th></tr></thead>
         <tbody>
           <tr><td>Workflow unit</td><td>What is one repeatable task the agent will handle?</td></tr>
-          <tr><td>Allowed inputs</td><td>What can the agent read or observe?</td></tr>
-          <tr><td>Allowed actions</td><td>What can the agent do without approval?</td></tr>
+          <tr><td>Allowed inputs</td><td>What approved sources can the agent read?</td></tr>
+          <tr><td>Allowed actions</td><td>What low-risk, reversible actions can the agent take without approval?</td></tr>
           <tr><td>Review gate</td><td>When must the agent stop and ask a human?</td></tr>
-          <tr><td>Success metric</td><td>What number should improve?</td></tr>
-          <tr><td>First test</td><td>What is the smallest safe run?</td></tr>
+          <tr><td>Success metric</td><td>What metric should improve, and what baseline will you compare against?</td></tr>
+          <tr><td>First test</td><td>What is the smallest internal or historical-data test you can run safely?</td></tr>
           <tr><td>Stop condition</td><td>What failure means pause, revert, or redesign?</td></tr>
         </tbody>
       </table>
+    </section>
+
+    <section class="card">
+      <h2>Worked examples</h2>
+      <p>Use these examples to calibrate your scoring and design your own first safe test; do not copy the scores blindly.</p>
     </section>
 
     <section class="card">
@@ -101,14 +117,18 @@
       <table>
         <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
         <tbody>
-          <tr><td>Input clarity</td><td>2</td><td>The agent can read existing local pages and source notes.</td></tr>
-          <tr><td>Action safety</td><td>2</td><td>Draft edits are reversible before publication.</td></tr>
-          <tr><td>Reviewability</td><td>2</td><td>Static checks and a small human review can catch many obvious problems before handoff.</td></tr>
-          <tr><td>Measurable value</td><td>1</td><td>Useful pages shipped is measurable; reader demand is not measured yet.</td></tr>
-          <tr><td>Human time</td><td>1</td><td>Owner review is still needed for public positioning.</td></tr>
+          <tr><td>Input clarity</td><td>2</td><td>The agent can read existing local pages, approved source material, and editorial rules.</td></tr>
+          <tr><td>Action safety</td><td>2</td><td>Draft edits are local and reversible before publication.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>Static checks, link checks, and a small review can catch obvious problems before handoff.</td></tr>
+          <tr><td>Measurable value</td><td>1</td><td>Pages shipped and automated quality-check failures are measurable; reader demand is not measured yet.</td></tr>
+          <tr><td>Human time</td><td>1</td><td>Owner review is still needed for public positioning or publication gates.</td></tr>
           <tr><td>Learning loop</td><td>2</td><td>Each pass improves the checker, style guide, and public bundle.</td></tr>
-          <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded local agent operation, not autonomous public publishing.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded local agent operation.</td></tr>
         </tbody>
+      </table>
+      <table>
+        <thead><tr><th>First safe test</th><th>Review gate</th><th>Stop condition</th></tr></thead>
+        <tbody><tr><td>Draft one local page update, run the public-bundle checker, and produce a diff.</td><td>Human approval before publishing, changing positioning, or making stronger claims.</td><td>Quality checks fail, sources are weak, or the draft claims users want the page without evidence.</td></tr></tbody>
       </table>
     </section>
 
@@ -118,13 +138,17 @@
         <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
         <tbody>
           <tr><td>Input clarity</td><td>1</td><td>Invoices arrive through email, PDFs, and portals; inputs exist but need extraction and cleanup.</td></tr>
-          <tr><td>Action safety</td><td>1</td><td>The agent can extract fields and suggest coding, but payment approval must stay human-controlled.</td></tr>
-          <tr><td>Reviewability</td><td>2</td><td>A human can check vendor, amount, due date, purchase order match, and general ledger code.</td></tr>
-          <tr><td>Measurable value</td><td>2</td><td>Cycle time, error rate, and human minutes per invoice are measurable.</td></tr>
+          <tr><td>Action safety</td><td>0</td><td>Payment movement and changes to official vendor payment records are high-risk and should not be autonomous.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>A human can check vendor, amount, due date, purchase-order match, and ledger code.</td></tr>
+          <tr><td>Measurable value</td><td>2</td><td>Cycle time, error rate, exception rate, and human minutes per invoice are measurable.</td></tr>
           <tr><td>Human time</td><td>1</td><td>Human review is needed at approval and payment gates.</td></tr>
           <tr><td>Learning loop</td><td>2</td><td>Vendor mappings, exception lists, and coding rules improve over time.</td></tr>
-          <tr><td><strong>Total</strong></td><td><strong>9</strong></td><td>Good candidate for bounded intake operation with human payment approval, not autonomous payment.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>8</strong></td><td>Good for an agent-assisted intake test, not autonomous payment.</td></tr>
         </tbody>
+      </table>
+      <table>
+        <thead><tr><th>First safe test</th><th>Review gate</th><th>Stop condition</th></tr></thead>
+        <tbody><tr><td>Extract fields from 20 scrubbed or approved historical invoices and prepare a review packet; no payment action.</td><td>Human approval for payment, vendor changes, bank movement, or overriding mismatches, duplicates, policy exceptions, or missing approvals.</td><td>Any mismatch appears in bank details, tax ID, vendor identity, duplicate detection, amount, or purchase-order tolerance.</td></tr></tbody>
       </table>
     </section>
 
@@ -142,6 +166,10 @@
           <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded operation with review before customer-visible action.</td></tr>
         </tbody>
       </table>
+      <table>
+        <thead><tr><th>First safe test</th><th>Review gate</th><th>Stop condition</th></tr></thead>
+        <tbody><tr><td>Shadow-test on historical leads: label, score, and draft internal reply suggestions without sending anything or changing queues.</td><td>Human approval before replies, CRM status changes, routing-rule changes, or claims that the company researched or knows specific facts about the lead.</td><td>High-value leads are misclassified or drafts overpromise capabilities.</td></tr></tbody>
+      </table>
     </section>
 
     <section class="card">
@@ -150,13 +178,57 @@
         <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
         <tbody>
           <tr><td>Input clarity</td><td>2</td><td>Ticket text, account metadata, product area, and knowledge-base articles are available in defined systems.</td></tr>
-          <tr><td>Action safety</td><td>1</td><td>Tagging, summarizing, and suggesting replies are safe; refunds, account changes, or policy exceptions need review.</td></tr>
+          <tr><td>Action safety</td><td>1</td><td>Tagging and suggesting replies are safe; refunds, account changes, or policy exceptions need review.</td></tr>
           <tr><td>Reviewability</td><td>2</td><td>Support leads can review routing, escalation accuracy, and suggested response quality.</td></tr>
           <tr><td>Measurable value</td><td>2</td><td>First-response time, resolution time, escalation rate, and reopened tickets are measurable.</td></tr>
           <tr><td>Human time</td><td>1</td><td>Human review is needed for edge cases, angry customers, policy exceptions, and sensitive accounts.</td></tr>
           <tr><td>Learning loop</td><td>2</td><td>Resolved cases improve macros, routing rules, knowledge-base gaps, and escalation triggers.</td></tr>
-          <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded agent-assisted triage with review before sensitive or customer-visible resolution.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td>Good candidate for bounded agent-assisted triage.</td></tr>
         </tbody>
+      </table>
+      <table>
+        <thead><tr><th>First safe test</th><th>Review gate</th><th>Stop condition</th></tr></thead>
+        <tbody><tr><td>Shadow-test on 50 closed tickets and compare routing/escalation suggestions against actual outcomes before live routing.</td><td>Human approval before customer-visible replies, refunds, account actions, or policy exceptions.</td><td>Any security, privacy, legal, billing, VIP, vulnerable-user, or angry-customer escalation is missed or mishandled.</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Example: outreach drafting risk check</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Input clarity</td><td>1</td><td>Prospect lists and context may exist, but data rights and source quality are often unclear.</td></tr>
+          <tr><td>Action safety</td><td>0</td><td>Sending messages can create spam, compliance, reputation, and identity risks.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>A human can review targeting and message quality before anything is sent.</td></tr>
+          <tr><td>Measurable value</td><td>2</td><td>Replies, meetings, unsubscribes, and conversion are measurable if outreach is approved.</td></tr>
+          <tr><td>Human time</td><td>1</td><td>Human approval is needed for recipients, identity use, and sending.</td></tr>
+          <tr><td>Learning loop</td><td>2</td><td>Approved examples can improve targeting rules and message templates.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>8</strong></td><td>Agent-assisted drafting only; sending requires explicit approval.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>First safe test</th><th>Review gate</th><th>Stop condition</th></tr></thead>
+        <tbody><tr><td>Draft outreach variants and target-fit notes locally for a fake sample list or a list already approved for outreach; send nothing.</td><td>Human approval for recipient source, compliance, every external send, and using a person’s name, email address, signature, or company identity.</td><td>Personalization is misleading, recipient source is unclear, sensitive traits are inferred, compliance is unresolved, or claims are unsupported.</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Example: local documentation from code</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Input clarity</td><td>2</td><td>Source files, tests, comments, and existing docs are local and available.</td></tr>
+          <tr><td>Action safety</td><td>2</td><td>Local documentation edits are reversible and can be reviewed as a diff.</td></tr>
+          <tr><td>Reviewability</td><td>2</td><td>Links, examples, command snippets, and API claims can be checked against tests or code.</td></tr>
+          <tr><td>Measurable value</td><td>1</td><td>Coverage and broken links are measurable; reader usefulness may need later feedback.</td></tr>
+          <tr><td>Human time</td><td>2</td><td>The agent can run until a review diff is ready.</td></tr>
+          <tr><td>Learning loop</td><td>2</td><td>Each pass improves docs, examples, and checker rules.</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>11</strong></td><td>Promising candidate for bounded local testing.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>First safe test</th><th>Review gate</th><th>Stop condition</th></tr></thead>
+        <tbody><tr><td>Generate or update one doc page locally, run link/example checks, and open a diff.</td><td>Human approval before publishing externally or changing API promises.</td><td>Generated docs invent behavior, expose secrets, reference unreleased/private APIs, or contradict tests.</td></tr></tbody>
       </table>
     </section>
 
@@ -180,7 +252,7 @@
   </main>
 
   <footer>
-    Private review draft. Public release requires explicit approval.
+    Published static draft. Last updated 2026-06-22. Public claims, analytics, outreach, forms, spend, and identity use still require explicit approval.
   </footer>
 </body>
 </html>
