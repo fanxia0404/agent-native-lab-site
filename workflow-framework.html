@@ -74,14 +74,29 @@
       </table>
     </section>
 
+    <section>
+      <h2>What not to automate first</h2>
+      <p>A workflow can look attractive and still be a poor first agent test. Start with a smaller internal shadow test when any of these risks are present.</p>
+      <table>
+        <thead><tr><th>Do not automate first</th><th>Why it is risky</th><th>Safer first test</th></tr></thead>
+        <tbody>
+          <tr><td>Payments, refunds, or bank/vendor changes</td><td>Financial movement and vendor identity errors can be irreversible or hard to recover from.</td><td>Extract fields from historical records and prepare a human review packet; move no money.</td></tr>
+          <tr><td>Customer-visible replies in sensitive contexts</td><td>Wrong tone, policy mistakes, or privacy leaks can damage trust quickly.</td><td>Draft replies in shadow mode and compare them with approved historical replies.</td></tr>
+          <tr><td>Outbound messages using a person’s identity</td><td>Spam, compliance, deliverability, and reputation risks appear before there is enough evidence that the workflow creates value.</td><td>Draft messages against fake or pre-approved examples; send nothing.</td></tr>
+          <tr><td>Regulated or high-stakes decisions</td><td>Legal, medical, financial, hiring, or eligibility decisions often require domain review and audit trails.</td><td>Summarize evidence for a qualified human; do not decide or act.</td></tr>
+          <tr><td>Public claims about demand, savings, or profitability</td><td>Strong claims need evidence; early agent outputs can sound more certain than they are.</td><td>Label the result as a hypothesis, local measurement, or source-reported example.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
     <section class="card good">
       <h2>Current implication</h2>
-      <p>The best starting point for this lab remains <strong>content operations supported by a small set of focused AI helpers</strong>: it is low-regulation, locally testable, measurable through outputs, and useful before any public launch.</p>
+      <p>A strong starting point for this lab remains <strong>static content operations supported by a small set of focused AI helpers</strong>: it is lower-risk for the lab’s current static-content tests, locally testable, measurable through outputs, and useful before any broader measurement, outreach, or monetization gate.</p>
     </section>
   </main>
 
   <footer>
-    Static research note. Claims are limited to the evidence described on this site; no analytics, forms, outreach, or user data collection are used.
+    Last updated 2026-06-22. Static research note: claims are limited to the evidence described on this site; no analytics, forms, outreach, or user data collection are used.
   </footer>
 </body>
 </html>

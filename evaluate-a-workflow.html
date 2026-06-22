@@ -15,6 +15,7 @@
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; } .card { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:20px; margin:16px 0; }
     .tag { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:800; background:#eef2ff; color:#17306f; margin:0 5px 7px 0; } .good { border-left:4px solid var(--good); padding-left:14px; } .caution { border-left:4px solid var(--warn); padding-left:14px; }
     table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; } th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
+    pre { white-space:pre-wrap; overflow:auto; background:white; border:1px solid var(--line); border-radius:14px; padding:14px; line-height:1.5; }
     footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
   </style>
 </head>
@@ -232,6 +233,51 @@
       </table>
     </section>
 
+    <section class="card">
+      <h2>Copy/paste worksheet</h2>
+      <p>Use this static template in a doc or spreadsheet. Do not include secrets, customer data, or sensitive personal information when sharing it for review.</p>
+      <table>
+        <thead><tr><th>Field</th><th>Your notes</th></tr></thead>
+        <tbody>
+          <tr><td>Workflow name</td><td></td></tr>
+          <tr><td>Owner / reviewer</td><td></td></tr>
+          <tr><td>Date / version</td><td></td></tr>
+          <tr><td>Workflow unit</td><td>One repeatable task the agent may help with.</td></tr>
+          <tr><td>Allowed inputs</td><td>Approved sources only; note data rights and sensitivity.</td></tr>
+          <tr><td>Allowed actions</td><td>Low-risk, reversible, internal actions only.</td></tr>
+          <tr><td>Review gate</td><td>When the agent must stop for human approval.</td></tr>
+          <tr><td>Success metric</td><td>Time saved, error rate, response speed, quality score, revenue, cost, or cycle time.</td></tr>
+          <tr><td>First safe test</td><td>Small internal or historical-data test; no sending, spending, publishing, or sensitive record changes.</td></tr>
+          <tr><td>Stop condition</td><td>The failure that means pause, revert, or redesign.</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead><tr><th>Dimension</th><th>Score 0–2</th><th>Evidence or concern</th></tr></thead>
+        <tbody>
+          <tr><td>Input clarity</td><td></td><td>Source, sample, baseline, or assumption.</td></tr>
+          <tr><td>Action safety</td><td></td><td>Source, sample, baseline, or assumption.</td></tr>
+          <tr><td>Reviewability</td><td></td><td>Source, sample, baseline, or assumption.</td></tr>
+          <tr><td>Measurable value</td><td></td><td>Source, sample, baseline, or assumption.</td></tr>
+          <tr><td>Human effort required</td><td></td><td>Source, sample, baseline, or assumption.</td></tr>
+          <tr><td>Reusable learning</td><td></td><td>Source, sample, baseline, or assumption.</td></tr>
+          <tr><td><strong>Total</strong></td><td></td><td>Suggested interpretation: 0–4 manual first; 5–8 agent-assisted test; 9–12 bounded agent operation.</td></tr>
+        </tbody>
+      </table>
+      <p>If pasting into a plain-text note, copy this compact version:</p>
+      <pre>Workflow:
+Owner / reviewer:
+Date / version:
+Allowed inputs:
+Allowed actions:
+Review gate:
+Success metric:
+First safe test:
+Stop condition:
+Scores — input clarity __ / action safety __ / reviewability __ / measurable value __ / human effort __ / reusable learning __ / total __
+Evidence or concern for each score:
+Decision: manual first / agent-assisted test / bounded agent operation</pre>
+    </section>
+
     <section class="card caution">
       <h2>Red flags</h2>
       <p>Even a high score should be treated cautiously if the workflow includes:</p>
@@ -252,7 +298,7 @@
   </main>
 
   <footer>
-    Published static draft. Last updated 2026-06-22. Public claims, analytics, outreach, forms, spend, and identity use still require explicit approval.
+    Last updated 2026-06-22. Static research note: claims are limited to the evidence described on this site; no analytics, forms, outreach, or user data collection are used.
   </footer>
 </body>
 </html>
