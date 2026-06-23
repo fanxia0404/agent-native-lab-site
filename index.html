@@ -3,35 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agent Native Lab · Experiment-first AI-agent workflow research</title>
-  <meta name="description" content="Agent Native Lab helps founders and builders identify which business workflows AI agents can realistically run, what still needs human review, and how to test the work safely." />
+  <title>Agent Native Lab · AI agent experiments</title>
+  <meta name="description" content="Real experiments showing what AI agents can and cannot operate, starting with an agent-operated public website." />
   <style>
     :root { color-scheme: light; --bg:#fbfaf7; --panel:#fffdf8; --ink:#18202a; --muted:#586170; --line:#e4ded3; --accent:#3157d5; --accent-ink:#17306f; --good:#0f7b4f; --warn:#9f5b00; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.55; color:var(--ink); background:radial-gradient(circle at top left,#eef2ff 0,transparent 30rem),var(--bg); }
+    * { box-sizing:border-box; } body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.55; color:var(--ink); background:radial-gradient(circle at top left,#eef2ff 0,transparent 30rem),var(--bg); }
     a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
-    header, main, footer { max-width:1080px; margin:0 auto; padding:0 22px; }
+    header, main, footer { max-width:920px; margin:0 auto; padding:0 22px; }
     nav { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:20px 0; }
-    .brand { font-weight:800; letter-spacing:-.02em; color:var(--ink); }
-    .links { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
-    .hero { padding:58px 0 34px; max-width:910px; }
-    .kicker { color:var(--accent-ink); font-weight:800; text-transform:uppercase; letter-spacing:.09em; font-size:13px; }
-    h1 { font-size:clamp(40px,7vw,72px); line-height:.98; margin:12px 0 18px; letter-spacing:-.055em; }
-    h2 { font-size:28px; line-height:1.12; margin:42px 0 14px; letter-spacing:-.025em; }
-    h3 { margin:0 0 8px; font-size:18px; }
-    p { margin:0 0 14px; }
-    .lede { font-size:21px; color:#2f3947; max-width:800px; }
-    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
-    .button { display:inline-block; border:1px solid var(--accent); border-radius:999px; padding:10px 16px; font-weight:700; background:var(--accent); color:white; }
-    .button.secondary { background:transparent; color:var(--accent); }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
-    .card { border:1px solid var(--line); background:rgba(255,253,248,.88); border-radius:18px; padding:20px; box-shadow:0 8px 28px rgba(24,32,42,.04); margin:16px 0; }
-    .callout { border-left:4px solid var(--good); padding-left:14px; }
-    .warning { border-left:4px solid var(--warn); padding-left:14px; color:#4a3420; }
-    .tag { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:700; background:#eef2ff; color:var(--accent-ink); margin:0 5px 7px 0; }
-    table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-    th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
-    footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
+    .brand { font-weight:800; letter-spacing:-.02em; color:var(--ink); } .links { display:flex; gap:14px; flex-wrap:wrap; font-size:14px; }
+    .hero { padding:72px 0 38px; } .kicker { color:var(--accent-ink); font-weight:800; text-transform:uppercase; letter-spacing:.09em; font-size:13px; }
+    h1 { font-size:clamp(42px,7vw,76px); line-height:.98; margin:12px 0 18px; letter-spacing:-.055em; } h2 { font-size:28px; line-height:1.12; margin:42px 0 14px; letter-spacing:-.025em; } h3 { margin:0 0 8px; font-size:19px; }
+    p { margin:0 0 14px; } .lede { font-size:22px; color:#2f3947; max-width:780px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; } .button { display:inline-block; border:1px solid var(--accent); border-radius:999px; padding:11px 17px; font-weight:800; background:var(--accent); color:white; }
+    .card { border:1px solid var(--line); background:rgba(255,253,248,.9); border-radius:18px; padding:22px; box-shadow:0 8px 28px rgba(24,32,42,.04); margin:16px 0; }
+    .tag { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:800; background:#e8f7ef; color:var(--good); margin:0 5px 8px 0; }
+    ul { padding-left:20px; margin:8px 0 0; } footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
   </style>
 
   <script data-goatcounter="https://agent-native-lab.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -43,64 +30,41 @@
       <div class="links">
         <a href="index.html">Home</a>
         <a href="experiments.html">Experiments</a>
-        <a href="evaluate-a-workflow.html">Evaluate</a>
         <a href="privacy.html">Privacy</a>
       </div>
     </nav>
     <section class="hero">
-      <div class="kicker">Experiment-first AI-agent workflow research</div>
-      <h1>Which autonomous business loops actually work?</h1>
-      <p class="lede">Agent Native Lab runs small public experiments to see what AI agents can actually operate, what still needs human approval, what fails, and which repeated patterns are worth turning into tools later.</p>
-      <div class="actions">
-        <a class="button" href="experiments.html">Read the experiments</a>
-        <a class="button secondary" href="evaluate-a-workflow.html">Evaluate a workflow</a>
-      </div>
+      <div class="kicker">AI agent experiments</div>
+      <h1>Real experiments showing what AI agents can and can’t operate.</h1>
+      <p class="lede">Agent Native Lab tests small autonomous business loops and reports what the agent actually did, where it needed human help, and what failed.</p>
+      <div class="actions"><a class="button" href="experiments.html">Browse experiments</a></div>
     </section>
   </header>
 
   <main>
-    <section class="card callout">
-      <h2>What you get from this site</h2>
-      <p>If you are considering an AI-agent business or automation idea, this site starts with experiments rather than finished frameworks: what was tried, what the agent could do safely, what required human approval, and what patterns may become tools later.</p>
-      <div class="grid">
-        <article class="card"><h3>Experiment notes</h3><p>Follow concrete tests of agent-operated workflows, starting with this site operating itself.</p></article>
-        <article class="card"><h3>Evidence discipline</h3><p>Separate hypotheses, local measurements, source-reported examples, and actual failures instead of treating AI hype as proof.</p></article>
-        <article class="card"><h3>Emergent tools</h3><p>Use the current evaluator as provisional; stronger checklists should come from repeated experiment patterns.</p></article>
-      </div>
+    <section class="card">
+      <h2>Start here</h2>
+      <p>The site is intentionally simple: browse experiments first. It is for builders exploring agent-operated systems. Tools and checklists come later, after repeated local evidence and failure patterns show up across experiments.</p>
     </section>
 
     <section class="card">
-      <h2>How to read this site</h2>
-      <p>The navigation is intentionally small: read the experiments first, then use the provisional evaluator if you want to apply the patterns.</p>
-      <table>
-        <thead><tr><th>Page</th><th>Question it answers</th><th>Why it matters</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Home</strong></td><td>What is this and who is it for?</td><td>Explains the experiment-first approach.</td></tr>
-          <tr><td><strong>Experiments</strong></td><td>What autonomous loops are being tested?</td><td>The main content: results, failures, costs, human gates, and patterns.</td></tr>
-          <tr><td><strong>Evaluate</strong></td><td>Is my workflow ready for agent operation?</td><td>A provisional worksheet that should improve as experiment patterns repeat.</td></tr>
-          <tr><td><strong>Privacy</strong></td><td>What measurement is allowed?</td><td>Explains the no-cookie, aggregate-only measurement boundary now used by the site.</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>What makes this different</h2>
-      <div class="grid">
-        <article class="card"><h3>Workflow first</h3><p>We evaluate what an agent can observe, decide, change, measure, and improve — not whether a product has an AI feature.</p></article>
-        <article class="card"><h3>Autonomy with human review</h3><p>Safe local work can continue automatically, while public launch, spend, outreach, identity use, and risky claims require approval.</p></article>
-        <article class="card"><h3>Measured, not assumed</h3><p>Useful claims should trace to source-reported examples, clearly labeled hypotheses, or local measurements.</p></article>
-      </div>
-    </section>
-
-    <section class="card warning">
-      <h2>Evidence level</h2>
-      <span class="tag">Hypothesis</span><span class="tag">Local test</span><span class="tag">Candidate evidence</span><span class="tag">No profitability claim</span>
-      <p>This is an early research summary. It is useful for framing and evaluation, not proof that agent-run businesses are solved, profitable, or validated by users.</p>
+      <span class="tag">Active experiment</span>
+      <h2>Can an AI agent operate and improve a public website?</h2>
+      <p>The first experiment uses this site as the test subject.</p>
+      <h3>What the agent actually did</h3>
+      <ul>
+        <li>Edited public pages.</li>
+        <li>Ran checks before publishing.</li>
+        <li>Published static updates.</li>
+        <li>Measured aggregate visits with GoatCounter.</li>
+        <li>Logged where owner approval was required.</li>
+      </ul>
+      <p style="margin-top:16px"><a href="experiments.html">Read the experiment →</a></p>
     </section>
   </main>
 
   <footer>
-    Last updated 2026-06-22. Static research note: claims are limited to the evidence described on this site; uses GoatCounter for aggregate page views and referrers only; no forms, outreach, cookies, user IDs, session replay, ad pixels, or user data collection are used.
+    Uses GoatCounter for aggregate page views and referrers only; no forms, cookies, user IDs, session replay, ad pixels, or user data collection are used.
   </footer>
 </body>
 </html>
