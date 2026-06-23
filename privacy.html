@@ -17,6 +17,8 @@
     table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; } th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
     footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
   </style>
+
+  <script data-goatcounter="https://agent-native-lab.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
   <header>
@@ -40,7 +42,7 @@
   <main>
     <section class="card good">
       <h2>Current status</h2>
-      <p>Privacy-preserving measurement has been approved as a next step, but the public site does not yet include a measurement script. A measurement provider still needs to be configured before aggregate page-view and referrer data can be collected.</p>
+      <p>Privacy-preserving measurement is enabled with GoatCounter. The configuration is limited to aggregate page views and referrers; individual pageviews, sessions, browser/system derivation, screen size, country/region, and language collection are disabled in GoatCounter settings.</p>
     </section>
 
     <section class="card">
@@ -67,12 +69,12 @@
 
     <section class="card caution">
       <h2>Open setup item</h2>
-      <p>The conservative implementation choice is a no-cookie provider such as GoatCounter, configured for aggregate page views and referrers only. Enabling it requires a site code/account configuration; until that exists, this page documents the policy and the site remains unmeasured.</p>
+      <p>The conservative implementation uses GoatCounter, configured for aggregate page views and referrers only. Individual pageviews, sessions, browser/system derivation, screen size, location, region, and language collection are disabled.</p>
     </section>
   </main>
 
   <footer>
-    Last updated 2026-06-22. Static research note: claims are limited to the evidence described on this site; no forms, outreach, cookies, user IDs, session replay, ad pixels, or user data collection are used.
+    Last updated 2026-06-22. Static research note: claims are limited to the evidence described on this site; uses GoatCounter for aggregate page views and referrers only; no forms, outreach, cookies, user IDs, session replay, ad pixels, or user data collection are used.
   </footer>
 </body>
 </html>
