@@ -52,10 +52,10 @@
         <li>Built and repeatedly simplified the public site.</li>
         <li>Changed the structure from broad navigation to Home → Experiments → Privacy.</li>
         <li>Added an experiment-card page so visitors can quickly see what is being tested.</li>
-        <li>Ran public-bundle, workflow, evidence, and live-site checks before publishing.</li>
+        <li>Ran named checks before publishing: public-bundle check, workflow sample-output tests, evidence-source checks, private-path probes, and live-site verification.</li>
         <li>Published sanitized static files to GitHub Pages.</li>
         <li>Added aggregate-only GoatCounter measurement.</li>
-        <li>Simulated a visit and used the result to add a clearer bridge from experiment story to worksheet.</li>
+        <li>Simulated a visitor path from Experiments to the detail page, noticed the worksheet bridge was unclear, and added a clearer link from the experiment story to the evaluator.</li>
       </ul>
     </section>
 
@@ -64,8 +64,8 @@
       <table>
         <thead><tr><th>Claim</th><th>Evidence level</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td>Agent can edit and publish a small static site.</td><td>Live public commits and checks</td><td>Completed</td></tr>
-          <tr><td>Agent can keep private files out of the public site.</td><td>Live-site verification and private-path probes</td><td>Completed</td></tr>
+          <tr><td>Agent can edit and publish a small static site.</td><td><a href="https://github.com/fanxia0404/agent-native-lab-site/commits/main/">Public repo commits</a> plus named checks</td><td>Completed</td></tr>
+          <tr><td>Agent can keep private files out of the public site.</td><td>Live-site verification plus private-path probes returning 404</td><td>Completed</td></tr>
           <tr><td>Agent can use aggregate traffic as a weak improvement signal.</td><td>GoatCounter configured; simulated loop run</td><td>Rehearsed</td></tr>
           <tr><td>Agent can improve based on real audience feedback after distribution.</td><td>No real distribution test yet</td><td>Not yet shown</td></tr>
         </tbody>
@@ -94,6 +94,7 @@
         <li>Visitors found the site abstract until the homepage became experiment-card-first.</li>
         <li>The experiment detail page itself was too abstract and had to be rewritten into this concrete report.</li>
         <li>Some steps still depend on external accounts or owner approval, so this is not an unsupervised business.</li>
+        <li>The main operational risks are overfitting to low traffic, publishing unclear copy, leaking private files, or treating setup/test visits as real evidence.</li>
       </ul>
     </section>
 
@@ -103,8 +104,13 @@
     </section>
 
     <section class="card">
+      <h2>If a bad edit ships</h2>
+      <p>The site is static and versioned in Git. A bad public edit can be reverted by rolling the public repo back to an earlier commit and re-running live-site verification. This rollback path is part of why this is a safe first experiment.</p>
+    </section>
+
+    <section class="card">
       <h2>Next test</h2>
-      <p>Run one small distribution test, wait for an observation window, then see whether the agent can choose and publish one improvement based on real aggregate traffic rather than setup/testing visits.</p>
+      <p>Run one small distribution test, wait for an observation window, then see whether the agent can choose and publish one improvement based on real aggregate traffic rather than setup/testing visits. A useful first success criterion: after 5–10 real visits or 7 days, the agent proposes one page edit from aggregate traffic, publishes it after review, and records why it chose that edit.</p>
       <p><a href="experiments.html">Back to experiments</a></p>
     </section>
   </main>
