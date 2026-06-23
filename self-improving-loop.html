@@ -15,6 +15,7 @@
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; } .card { border:1px solid var(--line); background:var(--panel); border-radius:18px; padding:20px; margin:16px 0; }
     .good { border-left:4px solid var(--good); padding-left:14px; } .caution { border-left:4px solid var(--warn); padding-left:14px; }
     .tag { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:800; background:#eef2ff; color:#17306f; margin:0 5px 7px 0; }
+    .button { display:inline-block; border:1px solid var(--accent); border-radius:999px; padding:10px 16px; font-weight:800; background:var(--accent); color:white; }
     table { width:100%; border-collapse:collapse; margin:14px 0; background:white; border:1px solid var(--line); border-radius:14px; overflow:hidden; } th,td { border-bottom:1px solid var(--line); text-align:left; padding:11px; vertical-align:top; } th { background:#f6f2ea; font-size:13px; } tr:last-child td { border-bottom:0; }
     code { background:#f1eee8; padding:2px 5px; border-radius:4px; }
     footer { color:var(--muted); font-size:14px; padding:42px 22px 56px; }
@@ -69,9 +70,15 @@
       </div>
     </section>
 
+    <section class="card good">
+      <h2>Try the practical worksheet next</h2>
+      <p>The measured loop test showed readers can reach the self-improving-loop story before the practical worksheet. The safe follow-up improvement is to add a clearer bridge from the autonomy story to the workflow evaluation tool.</p>
+      <p><a class="button" href="evaluate-a-workflow.html">Evaluate your own workflow</a></p>
+    </section>
+
     <section class="card caution">
       <h2>What would make the story stronger</h2>
-      <p>Privacy-preserving measurement is now configured. The next milestone is to run at least one measured improvement cycle: observe aggregate traffic, choose a safe follow-up improvement, verify it, publish it, and record the result.</p>
+      <p>Privacy-preserving measurement is now configured. The next milestone is to run at least one real post-distribution improvement cycle: observe aggregate traffic, choose a safe follow-up improvement, verify it, publish it, and record the result.</p>
     </section>
 
     <section class="card">
@@ -82,6 +89,7 @@
           <tr><td>2026-06-22</td><td>Split private ops repo from public site repo.</td><td>Clarifies what is private operating history and what is public static output.</td><td>Repository state</td></tr>
           <tr><td>2026-06-22</td><td>Added source-linked real-world examples and a manual score helper.</td><td>Makes the worksheet easier to use while preserving source caveats.</td><td>Static content update</td></tr>
           <tr><td>2026-06-22</td><td>Added this self-improving-loop explanation.</td><td>Makes the autonomous setup visible instead of presenting the site as static content only.</td><td>Static content update</td></tr>
+          <tr><td>2026-06-22</td><td>Ran simulated measured loop and added a bridge from the autonomy story to the worksheet.</td><td>Tests observe → choose → modify → verify → publish → record before external distribution.</td><td>Measured loop rehearsal</td></tr>
         </tbody>
       </table>
     </section>
