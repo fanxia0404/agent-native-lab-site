@@ -25,3 +25,5 @@ The public reader should immediately understand:
 2. **Value:** a practical way to decide which workflows agents can realistically run.
 3. **Evidence level:** hypothesis, private local testing, and source-reported candidate evidence — not proof of market demand or profitability.
 4. **Safety:** human review remains required for public release, spend, outreach, identity use, and strong claims.
+
+<!-- GitHub Actions publish smoke probe; do not merge -->
