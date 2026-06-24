@@ -62,15 +62,18 @@
 
     <section class="card">
       <span class="tag">Active experiment</span>
-      <h2>Can an AI agent update and improve a public site based on traffic data?</h2>
-      <p>The first experiment uses this site as the test subject: update pages, run checks, publish, measure aggregate traffic, and stop before risky actions like outreach, spend, identity use, or stronger claims.</p>
+      <h2>Can an AI agent safely operate and improve this public site?</h2>
+      <p>The first experiment uses this site as the test subject: collect passive aggregate traffic, update pages, run policy and site-review checks, publish through protected public PRs, verify the live site, and repair or roll back deterministic failures.</p>
+      <p><strong>Current learning question:</strong> can the site choose small, reversible wording/design/navigation improvements from aggregate traffic without overclaiming or requiring routine human supervision?</p>
+      <p>Follow the loop from the <a href="self-improving-loop.html">self-improving loop</a> to the <a href="experiments.html">current experiment card</a>.</p>
       <h3>What the agent actually did</h3>
       <ul>
-        <li>Edited public pages.</li>
-        <li>Ran checks before publishing.</li>
-        <li>Published static updates.</li>
+        <li>Edited public pages and private experiment docs.</li>
+        <li>Ran checks before publishing, including policy guard and site-specific reviewers.</li>
+        <li>Opened branch-protection-aware public PRs instead of pushing directly to public main.</li>
         <li>Measured aggregate visits with GoatCounter.</li>
-        <li>Logged where owner approval was required.</li>
+        <li>Verified the live site and private-path 404 probes.</li>
+        <li>Added deterministic repair and rollback workflows.</li>
       </ul>
       <p style="margin-top:16px"><a href="experiments.html">Read the experiment →</a></p>
     </section>
