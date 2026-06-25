@@ -32,21 +32,20 @@
       </div>
     </nav>
     <div class="kicker">Experiments</div>
-    <h1>Pick an experiment.</h1>
-    <p class="lede">Each experiment card shows what is being tested, whether it is active, and what the agent actually did. Detailed reports come after the card.</p>
+    <h1>Current experiments</h1>
+    <p class="lede">Each card shows the question, what has been verified, and what has not been shown yet.</p>
   </header>
 
   <main>
     <section class="card experiment">
-      <span class="tag">Active</span><span class="tag rehearsed">Scaffold live</span>
-      <h2>Can an AI agent safely operate and improve this public site?</h2>
-      <p><strong>Status:</strong> Active — the guarded self-editing scaffold is live. Public PR publishing, operator CI, live verification, and deterministic repair are verified.</p>
-      <p><strong>Summary:</strong> This experiment tests whether an agent can make small, reversible site improvements from passive aggregate traffic while staying inside strict review and publishing guardrails.</p>
+      <span class="tag">Active</span><span class="tag rehearsed">Publishing verified</span><span class="tag rehearsed">Awaiting traffic data</span>
+      <h2>Can an AI agent safely draft, check, and publish small updates to this site?</h2>
+      <p><strong>Status:</strong> Active. The guarded publishing path works; outcome learning from future traffic has not been shown yet.</p>
       <ul>
-        <li>Current evidence: site edits, checks, protected public PRs, aggregate analytics, and repair workflows are working.</li>
-        <li>Not measured here: long-horizon audience learning, growth, monetization, and end-to-end business operation.</li>
+        <li><strong>Verified:</strong> site edits, automated checks, reviewed public pull requests, live verification, and repeatable repairs for known failures.</li>
+        <li><strong>Not shown yet:</strong> growth, monetization, customer acquisition, or end-to-end business operation.</li>
       </ul>
-      <p><a href="self-improving-loop.html">Read the details →</a></p>
+      <p><a href="self-improving-loop.html">Read the full experiment report →</a></p>
     </section>
   </main>
 
