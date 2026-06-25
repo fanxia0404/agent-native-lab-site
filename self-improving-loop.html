@@ -35,7 +35,7 @@
     </nav>
     <div class="kicker">Experiment detail</div>
     <h1>Can an AI agent safely operate and improve this public site?</h1>
-    <p class="lede">Short answer: yes for the scaffold, not yet for long-horizon outcome learning. The agent can edit pages, run policy and site-review checks, open protected public PRs, measure aggregate visits, verify the live site, and repair known failures. It still needs a human for outreach, spend, identity use, feedback collection, customer-impacting changes, and stronger claims.</p>
+    <p class="lede">Short answer: the guarded update process works; outcome learning has not been shown yet. The agent can edit pages, run policy and site-review checks, open reviewed public pull requests, measure aggregate visits, verify the live site, and run predefined repairs for known failures. It still needs a human for outreach, spend, identity use, feedback collection, customer-impacting changes, and stronger claims.</p>
   </header>
 
   <main>
@@ -48,6 +48,7 @@
 
     <section class="card">
       <h2>What the agent actually did</h2>
+      <p>In plain English: the agent changed the site, checked that private files were not exposed, kept claims conservative, opened a pull request instead of publishing directly, and verified the live site after publishing.</p>
       <ul>
         <li>Built and repeatedly simplified the public site.</li>
         <li>Changed the structure from broad navigation to Home → Experiments → Privacy.</li>
@@ -69,7 +70,7 @@
           <tr><td>Agent can keep private files out of the public site.</td><td>Live-site verification plus private-path probes returning 404</td><td>Completed</td></tr>
           <tr><td>Agent can use aggregate traffic as a weak improvement signal.</td><td>GoatCounter configured; snapshots collected</td><td>Implemented</td></tr>
           <tr><td>Agent can publish safely through protected PRs.</td><td>Publish smoke workflow created and verified public PR creation</td><td>Completed</td></tr>
-          <tr><td>Agent can self-heal common failures.</td><td>Repair workflow handles transient failures, known checkout regression, and live-site rollback classes</td><td>Implemented</td></tr>
+          <tr><td>Agent can run predefined repairs for known failure types.</td><td>Repair workflow handles transient failures, known checkout regression, and live-site rollback classes</td><td>Implemented</td></tr>
           <tr><td>Agent can improve based on future passive audience data.</td><td>Scaffold ready; needs future observation windows</td><td>Awaiting data</td></tr>
         </tbody>
       </table>
